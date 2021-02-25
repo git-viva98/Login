@@ -1,0 +1,40 @@
+
+
+<table class="col-md-12 text-center table table-striped">
+
+    <thead>
+    <tr style="font-size: medium;">
+    <th>Item Count</th>
+    <th>Total Paid Quantity</th>
+    <th>Total NC Quantity</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr *ngFor="let report of data | paginate: {id: 'listing_pagination', 
+    itemsPerPage: 10,
+  currentPage: page,
+totalItems: totalRecords}">
+
+    <!-- <ngb-pagination [collectionSize]="80" [(page)]="page" aria-label="Default pagination"></ngb-pagination> -->
+    <!-- <ngb-pagination
+  [(page)]="page"
+  [pageSize]="10"
+  [collectionSize]="80"></ngb-pagination> -->
+    <!-- <tr *ngFor="let contact of data | ysixSearchFilter: searchValue | orderBy: key: reverse | paginate: { id: 'listing_pagination',
+    itemsPerPage: 10,
+    currentPage: page,
+    totalItems: totalRecords }"> -->
+    
+    <td>{{report.AtItemCount}}</td>
+    <td>{{report.AtTotalPaidQty}}</td> 
+    <td>{{report.AtTotalNCQty}}</td> 
+    
+    </tr>
+    </tbody>
+    </table>
+    <div>
+      <pagination-controls id="listing_pagination" (pageChange) = "page = $event" ></pagination-controls>
+    </div>
+    
+    
